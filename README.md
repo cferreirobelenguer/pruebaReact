@@ -1,5 +1,20 @@
 # EJERCÍCIO REACT
 
+Given these 2 APIS:
+
+- https://catfact.ninja/fact -Cat Random Facts
+- https://developers.giphy.com/docs/ -Giphy API
+
+Select one random cat fact and look for and matching gift
+by using the first three words from the fact.
+
+The result should be displayed with the image on the left
+side and the text on the right side.
+
+You need to create and Giphy app to get the api key.
+
+___________________________________________________
+
 Dadas estas 2 APIS:
 
 - https://catfact.ninja/fact -Cat Random Facts
