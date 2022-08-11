@@ -1,7 +1,7 @@
 .App {
   text-align: center;
 }
-
+/*Se crea un flexbox cuya imagen está a la izquierda y el texto a la derecha y centrado*/
 .container{
   display: flex;
   flex-direction: row;

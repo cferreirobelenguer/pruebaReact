@@ -7,16 +7,18 @@ const Prueba=()=>{
     const [resultado,setResultado]=useState("");
     const [resultadoCorto,setResultadoCorto]=useState("")
     const [imagen, setImagen]=useState("")
-    const API_KEY="XXXXXXXXXXXXXX"
+    const API_KEY="XXXXXXXXXXXXXXXXXXXX"
 
     const callAPI=()=>{
-        //Ejemplo de petición con axios
+        //petición con axios de la api de gatos
         axios.get('https://catfact.ninja/fact')
         .then(res=>{
+            //state que almacena la frase random de la api de gatos
             setResultado(res.data.fact);
             console.log(res.data.fact);
             let resultadoTotal=""
             let contador=0
+            //Si se lee espacio se cuenta como palabra, al llegar el contador a 3 se deja de concatenar el string
             for (let i of resultado){
                 resultadoTotal+=i
                 if(i===" "){
@@ -26,6 +28,7 @@ const Prueba=()=>{
                     break;
                 }
             }
+            //state que almacena las tres palabras sacadas del random de la api de gatos
             setResultadoCorto(resultadoTotal)
         })
         .catch(error=>{
@@ -35,15 +38,16 @@ const Prueba=()=>{
     }
     
     const callAPI2=()=>{
-        //Ejemplo de petición con fetch
+        //petición con fetch de la api de giphy
         fetch('https://api.giphy.com/v1/gifs/search?q='+resultadoCorto+'&api_key='+API_KEY)
         .then(res=>res.json())
         .then((data)=>{
+            //state que almacena la url del gift
             setImagen(data.data[0].images.original.url);
             console.log(data.data[0].images.original.url)
         })
     }
-    //La llamada a las APIS se hacen 
+    //La llamada a las APIS se ejecuta después del primer renderizado
     useEffect(()=>{
         callAPI();
         callAPI2()
@@ -60,11 +64,10 @@ const Prueba=()=>{
     return(
         <div className="container">
             <div className="tituloGato">
-                
-                <h1>{resultado}</h1>
+                <img src={imagen} width="500" height="500" alt="imagen"/>
             </div>
             <div className="giftGato">
-                <img src={imagen} width="500" height="500"/>
+                <h1>{resultado}</h1>
             </div>
             
         </div>
