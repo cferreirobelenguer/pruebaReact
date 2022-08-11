@@ -1,13 +1,13 @@
 
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
-
+const API_KEY="XGHZ8VQzgcGSGPqo69RM3L48BXno61ZU"
 
 const Prueba=()=>{
     const [resultado,setResultado]=useState("");
     const [resultadoCorto,setResultadoCorto]=useState("")
     const [imagen, setImagen]=useState("")
-    const API_KEY="XXXXXXXXXXXXXXXXXXXX"
+    
 
     const callAPI=()=>{
         //petición con axios de la api de gatos
@@ -47,19 +47,14 @@ const Prueba=()=>{
             console.log(data.data[0].images.original.url)
         })
     }
-    //La llamada a las APIS se ejecuta después del primer renderizado
+    
     useEffect(()=>{
         callAPI();
         callAPI2()
     }
     ,[]);
     
-    
-    
-    const recorrerImagen=()=>{
-        console.log(imagen)
-    }
-    recorrerImagen()
+
     console.log("resultado: "+resultadoCorto)
     return(
         <div className="container">
