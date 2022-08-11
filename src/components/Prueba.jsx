@@ -1,7 +1,7 @@
 
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
-const API_KEY="XGHZ8VQzgcGSGPqo69RM3L48BXno61ZU"
+const API_KEY="XXXXXXXXXXXXXXXXXXXXXXXXX"
 
 const Prueba=()=>{
     const [resultado,setResultado]=useState("");
